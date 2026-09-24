@@ -1,0 +1,320 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Kontrol Form */
+.sidebar {
+    width: 380px;
+    background-color: #ffffff;
+    padding: 24px;
+    border-right: 1px solid #e1e4e8;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    color: #512480;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #e6007e;
+    padding-bottom: 6px;
+}
+
+.sidebar h3 {
+    font-size: 15px;
+    color: #512480;
+    margin: 12px 0;
+}
+
+.form-divider {
+    border: 0;
+    border-top: 1px dashed #ccc;
+    margin: 18px 0;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #444;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 13px;
+    outline: none;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: #e6007e;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #e6007e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #c4006b;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 8px;
+    background-color: #512480;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #3b195e;
+}
+
+/* Preview Area Lembar A4 */
+.preview-container {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    overflow-y: auto;
+}
+
+.page-a4 {
+    width: 210mm;
+    min-height: 297mm;
+    background-color: #ffffff;
+    padding: 20mm 25mm;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Kop Surat (Logo + Tulisan Sebelahan) */
+.header {
+    border-bottom: 2px solid #222222;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+.kop-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo {
+    max-width: 110px;
+    height: auto;
+}
+
+.kop-text {
+    text-align: left;
+}
+
+.kop-title {
+    font-size: 26px;
+    font-weight: 900;
+    color: #512480;
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+
+.kop-subtitle {
+    font-size: 13px;
+    font-weight: bold;
+    color: #e6007e;
+    letter-spacing: 2px;
+    margin-top: 2px;
+}
+
+/* Meta Data Surat (Titik Dua Sejajar) */
+.meta-section {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.meta-table {
+    border-collapse: collapse;
+}
+
+.meta-table td {
+    padding: 2px 0;
+    vertical-align: top;
+}
+
+.meta-label {
+    width: 65px;
+}
+
+.meta-colon {
+    width: 15px;
+}
+
+/* Isi Surat */
+.letter-body {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.letter-body p {
+    margin-bottom: 15px;
+}
+
+.data-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+.data-table td {
+    padding: 6px 4px;
+    vertical-align: top;
+}
+
+.col-label {
+    width: 180px;
+}
+
+.col-colon {
+    width: 20px;
+}
+
+/* Signature & Stempel */
+.signature-section {
+    margin-top: 50px;
+    float: right;
+    width: 280px;
+    text-align: left;
+}
+
+.stamp-wrapper {
+    height: 100px;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.stempel-img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+}
+
+.signee-name {
+    text-decoration: underline;
+    font-size: 15px;
+    margin-top: 4px;
+}
+
+.contact {
+    font-size: 12px;
+    color: #444444;
+    line-height: 1.4;
+}
+
+/* Tabel Jadwal Lampiran */
+.schedule-title {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+.schedule-table th, 
+.schedule-table td {
+    border: 1px solid #333333;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.schedule-table th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.btn-del {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 2px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* Aturan Cetak (Print / PDF) */
+@media print {
+    body {
+        background-color: #ffffff;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .preview-container {
+        padding: 0;
+    }
+
+    .page-a4 {
+        box-shadow: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .page-break {
+        page-break-before: always;
+    }
+}
