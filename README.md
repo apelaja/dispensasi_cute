@@ -1,1 +1,203 @@
-# dispensasi_cute
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Surat Dispensasi - Cute Ballers Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Panel Input Form (Sidebar) -->
+        <aside class="sidebar no-print">
+            <h2>Form Dispensasi</h2>
+            <form id="dispensasiForm">
+                <div class="form-group">
+                    <label for="noSurat">No. Surat</label>
+                    <input type="text" id="noSurat" value="049/Cute Ballers Academy/2026">
+                </div>
+
+                <div class="form-group">
+                    <label for="tglSurat">Tanggal Surat</label>
+                    <input type="text" id="tglSurat" value="Denpasar, 8 Mei 2026">
+                </div>
+
+                <div class="form-group">
+                    <label for="pilihSiswa">Pilih Atlet / Siswa</label>
+                    <select id="pilihSiswa">
+                        <option value="I Made Anantha Prima Chandra Wibawa">I Made Anantha Prima Chandra Wibawa</option>
+                        <option value="I Gede Ryota Kurnia Abimartha">I Gede Ryota Kurnia Abimartha</option>
+                        <option value="I Made Galang Ady Putra Wiguna">I Made Galang Ady Putra Wiguna</option>
+                        <option value="Gde Keano Yaswanta Tirta Putra">Gde Keano Yaswanta Tirta Putra</option>
+                        <option value="Ida Bagus Putu Dafandra">Ida Bagus Putu Dafandra</option>
+                        <option value="Damar Narendra Rasendria Ardana">Damar Narendra Rasendria Ardana</option>
+                        <option value="I Nyoman Reswara Radha Darsika">I Nyoman Reswara Radha Darsika</option>
+                        <option value="Calvin Putra Leon">Calvin Putra Leon</option>
+                        <option value="Dewa Ngakan Made Arsyanendra">Dewa Ngakan Made Arsyanendra</option>
+                        <option value="Daeyu Kahiang Pimala">Daeyu Kahiang Pimala</option>
+                        <option value="custom">-- Input Nama Lain --</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="inputCustomGroup" style="display: none;">
+                    <label for="namaCustom">Nama Siswa Manual</label>
+                    <input type="text" id="namaCustom" placeholder="Ketik nama lengkap siswa">
+                </div>
+
+                <div class="form-group">
+                    <label for="kategoriUmur">Kategori Umur (KU)</label>
+                    <input type="text" id="kategoriUmur" value="KU 10">
+                </div>
+
+                <div class="form-group">
+                    <label for="kegiatan">Kegiatan Surat</label>
+                    <input type="text" id="kegiatan" value="Pertandingan Bola Basket PERBASI CUP 1">
+                </div>
+
+                <hr class="form-divider">
+
+                <!-- Form Input Lampiran Jadwal Pertandingan -->
+                <h3>Tambah Jadwal Pertandingan</h3>
+                <div class="form-group">
+                    <label for="jadwalHariTgl">Hari / Tanggal</label>
+                    <input type="text" id="jadwalHariTgl" placeholder="Contoh: Jumat, 8 Mei 2026">
+                </div>
+
+                <div class="form-group">
+                    <label for="jadwalWaktu">Waktu</label>
+                    <input type="text" id="jadwalWaktu" placeholder="Contoh: 14:00 - Selesai">
+                </div>
+
+                <div class="form-group">
+                    <label for="jadwalLaga">Pertandingan</label>
+                    <input type="text" id="jadwalLaga" placeholder="Contoh: CBA vs Team A">
+                </div>
+
+                <div class="form-group">
+                    <label for="jadwalLokasi">Lokasi / GOR</label>
+                    <input type="text" id="jadwalLokasi" placeholder="Contoh: GOR Ngurah Rai Denpasar">
+                </div>
+
+                <button type="button" id="btnTambahJadwal" class="btn-secondary">
+                    ➕ Tambah Baris Jadwal
+                </button>
+
+                <hr class="form-divider">
+
+                <button type="button" class="btn-primary" onclick="window.print()">
+                    🖨️ Cetak / Simpan PDF
+                </button>
+            </form>
+        </aside>
+
+        <!-- Preview Dokumen Kertas A4 -->
+        <main class="preview-container">
+            <!-- LEMBAR 1: SURAT PERMOHONAN DISPENSASI -->
+            <div class="page-a4">
+                <!-- Kop Surat dengan Logo dan Tulisan Sebelahan -->
+                <header class="header">
+                    <div class="kop-wrapper">
+                        <img src="assets/logo.png" alt="Logo Cute Ballers Academy Bali" class="logo">
+                        <div class="kop-text">
+                            <h1 class="kop-title">CUTE BALLERS ACADEMY</h1>
+                            <p class="kop-subtitle">Denpasar - Bali, Indonesia |<br> Telp/WA: 08174712385 / 081547451111 / 081246310310 / 082146459121 |
+				 Instagram: @cute_ballers_academy 
+				</br></p>
+					
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Detail Surat (Titik Dua Sejajar) -->
+                <section class="meta-section">
+                    <div class="meta-left">
+                        <table class="meta-table">
+                            <tr>
+                                <td class="meta-label"><strong>No.</strong></td>
+                                <td class="meta-colon">:</td>
+                                <td><span id="viewNoSurat">049/Cute Ballers Academy/2026</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-label"><strong>Lamp</strong></td>
+                                <td class="meta-colon">:</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td class="meta-label"><strong>Perihal</strong></td>
+                                <td class="meta-colon">:</td>
+                                <td>Permohonan Dispensasi</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="meta-right">
+                        <p><span id="viewTglSurat">Denpasar, 8 Mei 2026</span></p>
+                    </div>
+                </section>
+
+                <!-- Isi Surat -->
+                <section class="letter-body">
+                    <p>Dengan Hormat,</p>
+                    <p>Kami dari team management Cute Ballers Academy, mengajukan surat permohonan izin pada tanggal 8 Mei 2026 untuk anak didik kami :</p>
+
+                    <table class="data-table">
+                        <tr>
+                            <td class="col-label">Nama</td>
+                            <td class="col-colon">:</td>
+                            <td><strong id="viewNamaSiswa">I Made Anantha Prima Chandra Wibawa</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="col-label">KU (Kategori Umur)</td>
+                            <td class="col-colon">:</td>
+                            <td id="viewKU">KU 10</td>
+                        </tr>
+                        <tr>
+                            <td class="col-label">Kegiatan</td>
+                            <td class="col-colon">:</td>
+                            <td id="viewKegiatan">Pertandingan Bola Basket PERBASI CUP 1</td>
+                        </tr>
+                    </table>
+
+                    <p>Demikian surat permohonan izin ini kami sampaikan, atas kerjasamanya kami ucapkan terimakasi.</p>
+                </section>
+
+                <!-- Tanda Tangan & Stempel -->
+                <footer class="signature-section">
+                    <p>Management Cute Ballers Academy</p>
+                    <div class="stamp-wrapper">
+                        <img src="assets/stempel.png" alt="Tanda Tangan dan Stempel Official" class="stempel-img">
+                    </div>
+                    <p class="signee-name"><strong>Made Yoga Sandita, SE</strong></p>
+                    <p class="contact">IG: cute_ballers_academy</p>
+                    <p class="contact">Telp : 08174712385, 081547451111, 081246310310, 082146459121</p>
+                </footer>
+            </div>
+
+<div class="page-a4 page-break">
+       
+
+                <h3 class="schedule-title">LAMPIRAN JADWAL PERTANDINGAN </h3>
+
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">No</th>
+                            <th>Hari / Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Pertandingan</th>
+                            <th>Lokasi</th>
+                            <th class="no-print" style="width: 50px;">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jadwalTableBody">
+                        <!-- Baris jadwal dinamis dari JS -->
+                    </tbody>
+                </table>
+
+               
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
