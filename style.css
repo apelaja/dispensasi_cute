@@ -12,7 +12,11 @@ body {
 
 .app-container {
     display: flex;
-    min-height: 100vh;
+    flex-direction: column; /* Mengutamakan susunan vertikal ke bawah (Form di atas, Preview di bawah) */
+    gap: 16px;
+    max-width: 800px; /* Lebar maksimal dikunci agar sangat nyaman diisi lewat HP/Desktop */
+    margin: 0 auto;
+
 }
 
 /* Sidebar Kontrol Form */
