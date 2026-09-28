@@ -12,10 +12,13 @@ body {
 
 .app-container {
     display: flex;
-    flex-direction: column; /* Mengutamakan susunan vertikal ke bawah (Form di atas, Preview di bawah) */
+    flex-direction: column;
     gap: 16px;
-    max-width: 100px; /* Lebar maksimal dikunci agar sangat nyaman diisi lewat HP/Desktop */
-    margin: 0 auto;
+    width: 100%;             /* Mengisi penuh lebar layar/kontainer */
+    max-width: 600px;        /* Lebar maksimal di layar besar (bisa diubah sesuai kebutuhan, misal 600px atau 800px) */
+    margin: 0 auto;          /* Posisi otomatis di tengah */
+    padding: 0 16px;         /* Memberikan jarak aman di sisi kiri dan kanan agar tidak mentok layar HP */
+    box-sizing: border-box;  /* Memastikan padding tidak merusak total lebar elemen */
 
 }
 
