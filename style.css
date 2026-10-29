@@ -118,7 +118,7 @@ body {
 /* Preview Area Lembar A4 */
 .preview-container {
     flex: 1;
-    padding: 40px;
+    padding: 0 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
